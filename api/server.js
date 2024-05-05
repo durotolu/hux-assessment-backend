@@ -1,6 +1,7 @@
 const express = require("express");
 
 const authRouter = require("../users/auth-router");
+const ContactsRouter = require("../contacts/contacts-router");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/auth", authRouter);
+app.use("/contacts", ContactsRouter);
 
 app.get("/", (req, res) => {
   try {
