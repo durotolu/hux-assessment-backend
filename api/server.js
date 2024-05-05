@@ -1,5 +1,7 @@
 const express = require("express");
 
+const authRouter = require("../users/auth-router");
+
 const app = express();
 
 app.use(express.json());
@@ -10,6 +12,8 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
+
+app.use("/auth", authRouter);
 
 app.get("/", (req, res) => {
   try {
